@@ -13,7 +13,12 @@ public class GenericController {
     private GenericService genericService;
 
     @GetMapping("/greet")
-    public String hello(@RequestHeader("loggedInUser") String userName){
+    public String greet(@RequestHeader("loggedInUser") String userName){
         return userName + ", Hello from Service 1" ;
+    }
+
+    @GetMapping("/combined-greet")
+    public String combinedGreet(@RequestHeader("loggedInUser") String userName){
+        return new StringBuilder().append(userName).append(", Hello from Service 1").append(", ").append(genericService.getGreetingFromAnotherService()).toString() ;
     }
 }
