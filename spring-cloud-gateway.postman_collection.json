@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "5b388cbc-74b6-4a2b-88c1-2713d8388b89",
+		"name": "spring-cloud-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "service-1-direct-status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/greet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"greet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "service-1-greet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/service/first/greet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"service",
+						"first",
+						"greet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-new-token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"name1\",\r\n    \"password\": \"pass1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/service/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"service",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "service-1-status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4001/greet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"greet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

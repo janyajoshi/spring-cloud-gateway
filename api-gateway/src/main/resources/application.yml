@@ -1,0 +1,65 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: API-GATEWAY
+#  config:
+#    enabled: false
+#    import-check:
+#      enabled: false
+#    import: optional:configserver:
+  cloud:
+    bootstrap:
+      enabled: true
+    config:
+#      discovery:
+#        enabled: true
+#        service-id: CONFIG-SERVER
+      uri: http://localhost:7000
+    gateway:
+      routes:
+
+        - id: authService
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/service/auth/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: auth-fallback
+                fallbackuri: forward:/fallback/auth
+
+        - id: service1
+          uri: lb://SERVICE1
+          predicates:
+            - Path=/service/first/**
+          filters:
+            - AuthenticationFilter
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: service-1-fallback
+                fallbackuri: forward:/fallback/service1
+
+        - id: service2
+          uri: lb://SERVICE2
+          predicates:
+            - Path=/service/second/**
+          filters:
+            - AuthenticationFilter
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: service-2-fallback
+                fallbackuri: forward:/fallback/service2
+
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka
+#  instance:
+#    hostname: localhost
