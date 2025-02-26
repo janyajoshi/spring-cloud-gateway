@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "97c8a485-2445-4a95-b7df-fe622090fd93",
+		"_postman_id": "ecae9c60-5389-44d9-af93-21afab58aab2",
 		"name": "spring-cloud-gateway",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36487322"
 	},
 	"item": [
 		{
@@ -19,19 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:5000/service/auth/token",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"service",
-						"auth",
-						"token"
-					]
-				}
+				"url": "http://localhost:3000/service/auth/token"
 			},
 			"response": []
 		},
@@ -49,6 +38,13 @@
 					"port": "4001",
 					"path": [
 						"greet"
+					],
+					"query": [
+						{
+							"key": "loggedInUser",
+							"value": "abc",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -57,42 +53,30 @@
 		{
 			"name": "service-1-greet",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyRGV0YWlscyI6eyJpZCI6MSwibmFtZSI6Im5hbWUxIiwiZW1haWwiOiJlbWFpbDEiLCJwYXNzd29yZCI6IiQyYSQxMCRrd0NqT2U5d2hXVk5lZTdUcXg4bFV1Ukk5QjdaaG1LbnRxQUdxSmFqNWQzbTZYRmZWUklJZSIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIifSwic3ViIjoibmFtZTEiLCJpYXQiOjE3NDA1NTg3MzcsImV4cCI6MTc0MDU2MDUzN30.yMJ5VQeAJteZHqcFOzOGzh-jMGqqFho-aNCICe0p48M"
+					}
+				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/service/first/greet",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"service",
-						"first",
-						"greet"
-					]
-				}
+				"url": "http://localhost:3000/service/first/greet"
 			},
 			"response": []
 		},
 		{
 			"name": "service-1-combined-greet",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyRGV0YWlscyI6eyJpZCI6MSwibmFtZSI6Im5hbWUxIiwiZW1haWwiOiJlbWFpbDEiLCJwYXNzd29yZCI6IiQyYSQxMCRrd0NqT2U5d2hXVk5lZTdUcXg4bFV1Ukk5QjdaaG1LbnRxQUdxSmFqNWQzbTZYRmZWUklJZSIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIifSwic3ViIjoibmFtZTEiLCJpYXQiOjE3NDA1NTg3MzcsImV4cCI6MTc0MDU2MDUzN30.yMJ5VQeAJteZHqcFOzOGzh-jMGqqFho-aNCICe0p48M"
+					}
+				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/service/first/greet",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"service",
-						"first",
-						"greet"
-					]
-				}
+				"url": "http://localhost:3000/service/first/combined-greet"
 			},
 			"response": []
 		}

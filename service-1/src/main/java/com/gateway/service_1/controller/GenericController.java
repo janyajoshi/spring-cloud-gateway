@@ -13,7 +13,7 @@ public class GenericController {
     private GenericService genericService;
 
     @GetMapping("/greet")
-    public String greet(@RequestHeader("loggedInUser") String userName){
+    public String greet(@RequestHeader(value = "loggedInUser", defaultValue = "Stranger") String userName){
         return userName + ", Hello from Service 1" ;
     }
 

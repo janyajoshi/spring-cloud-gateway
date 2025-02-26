@@ -22,7 +22,7 @@ apiGateway  --|>  serviceN
 
 There is a postman collection included.
 
-- Obtain a token from [get-new-token](http://localhost:5000/service/auth/token) using {"username": "name1","password": "pass1"} as request body. The username and passwords are hardcoded into **auth-service** for now.
+- Obtain a token from [get-new-token](http://localhost:3000/service/auth/token) using {"username": "name1","password": "pass1"} as request body. The username and passwords are hardcoded into **auth-service** for now.
 - use that token to access rest of the methods from this collection. Added token validation to **api-gateway** as well to reduce network calls.
 - remember [service-1-direct-greet](http://localhost:4001/greet) does not goes through **api-gateway** and hence does not requires authentication as of now.
 - The resigtering of different services to **service-registry** can be observed through [Local Eureka Dashboard](http://localhost:8761/)
