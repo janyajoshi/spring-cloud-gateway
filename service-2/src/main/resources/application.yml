@@ -5,6 +5,13 @@ spring:
   application:
     name: SERVICE2
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
+
 eureka:
   client:
     register-with-eureka: true

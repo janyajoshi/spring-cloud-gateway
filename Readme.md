@@ -26,3 +26,29 @@ There is a postman collection included.
 - use that token to access rest of the methods from this collection. Added token validation to **api-gateway** as well to reduce network calls.
 - remember [service-1-direct-greet](http://localhost:4001/greet) does not goes through **api-gateway** and hence does not requires authentication as of now.
 - The resigtering of different services to **service-registry** can be observed through [Local Eureka Dashboard](http://localhost:8761/)
+
+## Observability
+
+### Nginx
+Included [nginx.conf](./nginx.conf) helps to expose services running on localhost to local network.
+```sh
+brew install nginx
+# modify it with help of included nginx.conf - /opt/homebrew/etc/nginx/nginx.conf
+nginx -t
+brew services start nginx
+brew services list
+brew services stop nginx
+```
+
+### Prometheus
+- [prometheus.yml](./prometheus/prometheus.yml) - ensure targets are updated here
+- Hot reload prometheus - `curl -X POST http://localhost:9090/-/reload`
+
+### Startup
+```sh
+docker-compose up -d
+docker-compose down
+```
+
+### Grafana
+- make sure to use local-ip instead of localhost while adding prometheus as a connection into grafana.

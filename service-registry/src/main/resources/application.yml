@@ -7,3 +7,10 @@ eureka:
     prefer-ip-address: true
 server:
   port: 8761
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus

@@ -55,6 +55,13 @@ spring:
                 name: service-2-fallback
                 fallbackuri: forward:/fallback/service2
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
+
 #eureka:
 #  client:
 #    register-with-eureka: true

@@ -5,20 +5,20 @@ scrape_configs:
   - job_name: "svcRegistry"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["192.168.29.16:8761"] # For Mac/Windows, host.docker.internal:8080
+      - targets: ["192.168.29.16:8761"] # For Mac/Windows, if services too are running inside docker, host.docker.internal:8080 can be used
   - job_name: "apiGateway"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["192.168.29.16:3000"] # For Mac/Windows, host.docker.internal:8080
+      - targets: ["192.168.29.16:3000"]
   - job_name: "authSvc"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["192.168.29.16:3001"] # For Mac/Windows, host.docker.internal:8080
+      - targets: ["192.168.29.16:3001"]
   - job_name: "svc1"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["192.168.29.16:4001"] # For Mac/Windows, host.docker.internal:8080
+      - targets: ["192.168.29.16:4001"]
   - job_name: "svc2"
     metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["192.168.29.16:4002"] # For Mac/Windows, host.docker.internal:8080
+      - targets: ["192.168.29.16:4002"]
